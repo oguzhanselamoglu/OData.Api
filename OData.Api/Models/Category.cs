@@ -7,6 +7,7 @@ namespace OData.Api.Models
 		public string Name { get; set; }
 
 		public ICollection<Product> Products { get; set; }
+
 	}
 }
 
