@@ -43,3 +43,15 @@ http://localhost:5049/odata/products?$filter=stock lt 10
 
 <= (Less Equeal)
 http://localhost:5049/odata/products?$filter=stock le 10
+
+endwith,startwith, length, indexof, trim function
+http://localhost:5049/odata/products?$filter=endwith(Name,'k')
+
+http://localhost:5049/odata/products?$filter=Created gt 2005-02-02
+
+http://localhost:5049/odata/products?$filter=length(Name) eq 3
+
+year,month,day
+http://localhost:5049/odata/products?$filter=year(Created) gt 2005
+
+
