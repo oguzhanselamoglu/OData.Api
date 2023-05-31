@@ -4,14 +4,15 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.OData.Formatter;
 using Microsoft.AspNetCore.OData.Query;
+using Microsoft.AspNetCore.OData.Routing.Controllers;
 using OData.Api.Models;
 
 namespace OData.Api.Controllers
 {
-    [Route("api/[controller]")]
-    [ApiController]
-    public class ProductsController : ControllerBase
+  
+    public class ProductsController : ODataController
     {
         private readonly AppDbContext _context;
 
@@ -20,10 +21,16 @@ namespace OData.Api.Controllers
             _context = context;
         }
         [EnableQuery]
-        [HttpGet]
+     
         public IActionResult Get()
         {
             return Ok(_context.Products);
+        }
+        
+        [EnableQuery]
+        public IActionResult Get([FromODataUri] int key)
+        {
+            return Ok(_context.Products.Where(x=> x.Id == key));
         }
     }
 }
