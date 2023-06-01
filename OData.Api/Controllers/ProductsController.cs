@@ -28,7 +28,7 @@ namespace OData.Api.Controllers
         }
         
         [EnableQuery]
-        public IActionResult Get([FromODataUri] int key)
+        public IActionResult GetProduct([FromODataUri] int key)
         {
             return Ok(_context.Products.Where(x=> x.Id == key));
         }

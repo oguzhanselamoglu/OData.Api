@@ -26,32 +26,33 @@ http://localhost:5049/odata/products?$count=true
 # filter
 Entity üerindeki filtreleme işlemi
 
-= (Equal)
+# = (Equal)
 http://localhost:5049/odata/products?$filter=name eq 'ayran'
 
-!= (Not Equal)
+# != (Not Equal)
 http://localhost:5049/odata/products?$filter=stock ne 10
 
-> (Greather Than)
+#> (Greather Than)
 http://localhost:5049/odata/products?$filter=stock gt 10
 
->= (Greather Equeal)
+# >= (Greather Equeal)
 http://localhost:5049/odata/products?$filter=stock ge 10
 
-< (Less Than)
+# < (Less Than)
 http://localhost:5049/odata/products?$filter=stock lt 10
 
 <= (Less Equeal)
 http://localhost:5049/odata/products?$filter=stock le 10
 
-endwith,startwith, length, indexof, trim function
+# endwith,startwith, length, indexof, trim function
 http://localhost:5049/odata/products?$filter=endwith(Name,'k')
 
 http://localhost:5049/odata/products?$filter=Created gt 2005-02-02
 
 http://localhost:5049/odata/products?$filter=length(Name) eq 3
 
-year,month,day
+# year,month,day
 http://localhost:5049/odata/products?$filter=year(Created) gt 2005
 
-
+options.EnableQueryFeatures()
+OData Route kullanmadan mevcut controller daki methodları kullanmak için
